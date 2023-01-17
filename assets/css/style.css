@@ -1,0 +1,10 @@
+.inner {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1600px) {
+  .inner {
+    padding: 0 2rem;
+  }
+}/*# sourceMappingURL=style.css.map */

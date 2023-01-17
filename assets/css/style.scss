@@ -1,0 +1,11 @@
+@charset "utf-8"; 
+
+$deviceWidth:1600px;
+$minWidth:1280px; 
+
+// 공통 inner 클래스
+.inner{max-width:$deviceWidth; margin:0 auto;}
+
+@media(max-width:$deviceWidth){
+    .inner{padding:0 2rem;}
+}
