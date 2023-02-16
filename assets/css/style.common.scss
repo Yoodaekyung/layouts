@@ -102,7 +102,7 @@ $designFontKr:'Pretendard';
 $defaultFontKr:'맑은 고딕', 'malgun gothic', 'AppleGothicNeoSD', 'Apple SD 산돌고딕 Neo', 'Microsoft NeoGothic', 'Droid sans';
 $mainColor:#1d77cb;
 
-body{font-family:$designFontKr, $defaultFontKr, sans-serif; font-weight:initial;}
+body{font-family:$designFontKr, $defaultFontKr, sans-serif; font-weight:initial; overflow:scroll; overflow-x:hidden; overflow-y:overlay;}
 
 /* IE에서 input 타입의 password의 placeholder 폰트 설정 */
 input:-ms-input-placeholder{font-family:$designFontKr, $defaultFontKr, sans-serif;}

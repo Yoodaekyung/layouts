@@ -252,7 +252,6 @@ mark {
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   overflow: visible;
 }
@@ -1996,27 +1995,12 @@ body .ui-tooltip {
    * Animate CSS
    -------------------------------------------------------------------------- */
 .animated {
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 
 .animated.hinge {
-  -webkit-animation-duration: 2s;
   animation-duration: 2s;
-}
-
-@-webkit-keyframes bounce {
-  0%, 100%, 20%, 50%, 80% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
 }
 @keyframes bounce {
   0%, 100%, 20%, 50%, 80% {
@@ -2030,17 +2014,7 @@ body .ui-tooltip {
   }
 }
 .bounce {
-  -webkit-animation-name: bounce;
   animation-name: bounce;
-}
-
-@-webkit-keyframes flash {
-  0%, 100%, 50% {
-    opacity: 1;
-  }
-  25%, 75% {
-    opacity: 0;
-  }
 }
 @keyframes flash {
   0%, 100%, 50% {
@@ -2051,17 +2025,7 @@ body .ui-tooltip {
   }
 }
 .flash {
-  -webkit-animation-name: flash;
   animation-name: flash;
-}
-
-@-webkit-keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
 }
 @keyframes pulse {
   0%, 100% {
@@ -2072,20 +2036,7 @@ body .ui-tooltip {
   }
 }
 .pulse {
-  -webkit-animation-name: pulse;
   animation-name: pulse;
-}
-
-@-webkit-keyframes shake {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-10px);
-  }
-  20%, 40%, 60%, 80% {
-    transform: translateX(10px);
-  }
 }
 @keyframes shake {
   0%, 100% {
@@ -2099,26 +2050,7 @@ body .ui-tooltip {
   }
 }
 .shake {
-  -webkit-animation-name: shake;
   animation-name: shake;
-}
-
-@-webkit-keyframes swing {
-  20% {
-    transform: rotate(15deg);
-  }
-  40% {
-    transform: rotate(-10deg);
-  }
-  60% {
-    transform: rotate(5deg);
-  }
-  80% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(0);
-  }
 }
 @keyframes swing {
   20% {
@@ -2139,26 +2071,7 @@ body .ui-tooltip {
 }
 .swing {
   transform-origin: top center;
-  -webkit-animation-name: swing;
   animation-name: swing;
-}
-
-@-webkit-keyframes tada {
-  0% {
-    transform: scale(1);
-  }
-  10%, 20% {
-    transform: scale(0.9) rotate(-3deg);
-  }
-  30%, 50%, 70%, 90% {
-    transform: scale(1.1) rotate(3deg);
-  }
-  40%, 60%, 80% {
-    transform: scale(1.1) rotate(-3deg);
-  }
-  100% {
-    transform: scale(1) rotate(0);
-  }
 }
 @keyframes tada {
   0% {
@@ -2178,29 +2091,7 @@ body .ui-tooltip {
   }
 }
 .tada {
-  -webkit-animation-name: tada;
   animation-name: tada;
-}
-
-@-webkit-keyframes wobble {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  15% {
-    transform: translateX(-25%) rotate(-5deg);
-  }
-  30% {
-    transform: translateX(20%) rotate(3deg);
-  }
-  45% {
-    transform: translateX(-15%) rotate(-3deg);
-  }
-  60% {
-    transform: translateX(10%) rotate(2deg);
-  }
-  75% {
-    transform: translateX(-5%) rotate(-1deg);
-  }
 }
 @keyframes wobble {
   0%, 100% {
@@ -2223,25 +2114,7 @@ body .ui-tooltip {
   }
 }
 .wobble {
-  -webkit-animation-name: wobble;
   animation-name: wobble;
-}
-
-@-webkit-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 @keyframes bounceIn {
   0% {
@@ -2260,25 +2133,7 @@ body .ui-tooltip {
   }
 }
 .bounceIn {
-  -webkit-animation-name: bounceIn;
   animation-name: bounceIn;
-}
-
-@-webkit-keyframes bounceInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-2000px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(30px);
-  }
-  80% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
 @keyframes bounceInDown {
   0% {
@@ -2297,25 +2152,7 @@ body .ui-tooltip {
   }
 }
 .bounceInDown {
-  -webkit-animation-name: bounceInDown;
   animation-name: bounceInDown;
-}
-
-@-webkit-keyframes bounceInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-2000px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateX(30px);
-  }
-  80% {
-    transform: translateX(-10px);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }
 @keyframes bounceInLeft {
   0% {
@@ -2334,25 +2171,7 @@ body .ui-tooltip {
   }
 }
 .bounceInLeft {
-  -webkit-animation-name: bounceInLeft;
   animation-name: bounceInLeft;
-}
-
-@-webkit-keyframes bounceInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(2000px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateX(-30px);
-  }
-  80% {
-    transform: translateX(10px);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }
 @keyframes bounceInRight {
   0% {
@@ -2371,25 +2190,7 @@ body .ui-tooltip {
   }
 }
 .bounceInRight {
-  -webkit-animation-name: bounceInRight;
   animation-name: bounceInRight;
-}
-
-@-webkit-keyframes bounceInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(2000px);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-30px);
-  }
-  80% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
 @keyframes bounceInUp {
   0% {
@@ -2408,25 +2209,7 @@ body .ui-tooltip {
   }
 }
 .bounceInUp {
-  -webkit-animation-name: bounceInUp;
   animation-name: bounceInUp;
-}
-
-@-webkit-keyframes bounceOut {
-  0% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(0.95);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
 }
 @keyframes bounceOut {
   0% {
@@ -2445,22 +2228,7 @@ body .ui-tooltip {
   }
 }
 .bounceOut {
-  -webkit-animation-name: bounceOut;
   animation-name: bounceOut;
-}
-
-@-webkit-keyframes bounceOutDown {
-  0% {
-    transform: translateY(0);
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(2000px);
-  }
 }
 @keyframes bounceOutDown {
   0% {
@@ -2476,22 +2244,7 @@ body .ui-tooltip {
   }
 }
 .bounceOutDown {
-  -webkit-animation-name: bounceOutDown;
   animation-name: bounceOutDown;
-}
-
-@-webkit-keyframes bounceOutLeft {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    opacity: 1;
-    transform: translateX(20px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-2000px);
-  }
 }
 @keyframes bounceOutLeft {
   0% {
@@ -2507,22 +2260,7 @@ body .ui-tooltip {
   }
 }
 .bounceOutLeft {
-  -webkit-animation-name: bounceOutLeft;
   animation-name: bounceOutLeft;
-}
-
-@-webkit-keyframes bounceOutRight {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    opacity: 1;
-    transform: translateX(-20px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(2000px);
-  }
 }
 @keyframes bounceOutRight {
   0% {
@@ -2538,22 +2276,7 @@ body .ui-tooltip {
   }
 }
 .bounceOutRight {
-  -webkit-animation-name: bounceOutRight;
   animation-name: bounceOutRight;
-}
-
-@-webkit-keyframes bounceOutUp {
-  0% {
-    transform: translateY(0);
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-2000px);
-  }
 }
 @keyframes bounceOutUp {
   0% {
@@ -2569,17 +2292,7 @@ body .ui-tooltip {
   }
 }
 .bounceOutUp {
-  -webkit-animation-name: bounceOutUp;
   animation-name: bounceOutUp;
-}
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 @keyframes fadeIn {
   0% {
@@ -2590,19 +2303,7 @@ body .ui-tooltip {
   }
 }
 .fadeIn {
-  -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
-}
-
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 @keyframes fadeInDown {
   0% {
@@ -2615,19 +2316,7 @@ body .ui-tooltip {
   }
 }
 .fadeInDown {
-  -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
-}
-
-@-webkit-keyframes fadeInDownBig {
-  0% {
-    opacity: 0;
-    transform: translateY(-2000px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 @keyframes fadeInDownBig {
   0% {
@@ -2640,19 +2329,7 @@ body .ui-tooltip {
   }
 }
 .fadeInDownBig {
-  -webkit-animation-name: fadeInDownBig;
   animation-name: fadeInDownBig;
-}
-
-@-webkit-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 @keyframes fadeInLeft {
   0% {
@@ -2665,19 +2342,7 @@ body .ui-tooltip {
   }
 }
 .fadeInLeft {
-  -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
-}
-
-@-webkit-keyframes fadeInLeftBig {
-  0% {
-    opacity: 0;
-    transform: translateX(-2000px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 @keyframes fadeInLeftBig {
   0% {
@@ -2690,19 +2355,7 @@ body .ui-tooltip {
   }
 }
 .fadeInLeftBig {
-  -webkit-animation-name: fadeInLeftBig;
   animation-name: fadeInLeftBig;
-}
-
-@-webkit-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 @keyframes fadeInRight {
   0% {
@@ -2715,19 +2368,7 @@ body .ui-tooltip {
   }
 }
 .fadeInRight {
-  -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
-}
-
-@-webkit-keyframes fadeInRightBig {
-  0% {
-    opacity: 0;
-    transform: translateX(2000px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 @keyframes fadeInRightBig {
   0% {
@@ -2740,19 +2381,7 @@ body .ui-tooltip {
   }
 }
 .fadeInRightBig {
-  -webkit-animation-name: fadeInRightBig;
   animation-name: fadeInRightBig;
-}
-
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 @keyframes fadeInUp {
   0% {
@@ -2765,19 +2394,7 @@ body .ui-tooltip {
   }
 }
 .fadeInUp {
-  -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
-}
-
-@-webkit-keyframes fadeInUpBig {
-  0% {
-    opacity: 0;
-    transform: translateY(2000px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 @keyframes fadeInUpBig {
   0% {
@@ -2790,17 +2407,7 @@ body .ui-tooltip {
   }
 }
 .fadeInUpBig {
-  -webkit-animation-name: fadeInUpBig;
   animation-name: fadeInUpBig;
-}
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 @keyframes fadeOut {
   0% {
@@ -2811,19 +2418,7 @@ body .ui-tooltip {
   }
 }
 .fadeOut {
-  -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
-}
-
-@-webkit-keyframes fadeOutDown {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
 }
 @keyframes fadeOutDown {
   0% {
@@ -2836,19 +2431,7 @@ body .ui-tooltip {
   }
 }
 .fadeOutDown {
-  -webkit-animation-name: fadeOutDown;
   animation-name: fadeOutDown;
-}
-
-@-webkit-keyframes fadeOutDownBig {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(2000px);
-  }
 }
 @keyframes fadeOutDownBig {
   0% {
@@ -2861,19 +2444,7 @@ body .ui-tooltip {
   }
 }
 .fadeOutDownBig {
-  -webkit-animation-name: fadeOutDownBig;
   animation-name: fadeOutDownBig;
-}
-
-@-webkit-keyframes fadeOutLeft {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
 }
 @keyframes fadeOutLeft {
   0% {
@@ -2886,19 +2457,7 @@ body .ui-tooltip {
   }
 }
 .fadeOutLeft {
-  -webkit-animation-name: fadeOutLeft;
   animation-name: fadeOutLeft;
-}
-
-@-webkit-keyframes fadeOutLeftBig {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-2000px);
-  }
 }
 @keyframes fadeOutLeftBig {
   0% {
@@ -2911,19 +2470,7 @@ body .ui-tooltip {
   }
 }
 .fadeOutLeftBig {
-  -webkit-animation-name: fadeOutLeftBig;
   animation-name: fadeOutLeftBig;
-}
-
-@-webkit-keyframes fadeOutRight {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(20px);
-  }
 }
 @keyframes fadeOutRight {
   0% {
@@ -2936,19 +2483,7 @@ body .ui-tooltip {
   }
 }
 .fadeOutRight {
-  -webkit-animation-name: fadeOutRight;
   animation-name: fadeOutRight;
-}
-
-@-webkit-keyframes fadeOutRightBig {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(2000px);
-  }
 }
 @keyframes fadeOutRightBig {
   0% {
@@ -2961,19 +2496,7 @@ body .ui-tooltip {
   }
 }
 .fadeOutRightBig {
-  -webkit-animation-name: fadeOutRightBig;
   animation-name: fadeOutRightBig;
-}
-
-@-webkit-keyframes fadeOutUp {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
 }
 @keyframes fadeOutUp {
   0% {
@@ -2986,19 +2509,7 @@ body .ui-tooltip {
   }
 }
 .fadeOutUp {
-  -webkit-animation-name: fadeOutUp;
   animation-name: fadeOutUp;
-}
-
-@-webkit-keyframes fadeOutUpBig {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-2000px);
-  }
 }
 @keyframes fadeOutUpBig {
   0% {
@@ -3011,86 +2522,34 @@ body .ui-tooltip {
   }
 }
 .fadeOutUpBig {
-  -webkit-animation-name: fadeOutUpBig;
   animation-name: fadeOutUpBig;
-}
-
-@-webkit-keyframes flip {
-  0% {
-    transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-  }
-  40% {
-    transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-  }
-  50% {
-    transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-  80% {
-    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-  100% {
-    transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
 }
 @keyframes flip {
   0% {
     transform: perspective(400px) translateZ(0) rotateY(0) scale(1);
-    -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
   }
   40% {
     transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);
-    -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
   }
   50% {
     transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
-    -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
   80% {
     transform: perspective(400px) translateZ(0) rotateY(360deg) scale(0.95);
-    -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
   100% {
     transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);
-    -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
 }
 .animated.flip {
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
-  -webkit-animation-name: flip;
   animation-name: flip;
-}
-
-@-webkit-keyframes flipInX {
-  0% {
-    transform: perspective(400px) rotateX(90deg);
-    opacity: 0;
-  }
-  40% {
-    transform: perspective(400px) rotateX(-10deg);
-  }
-  70% {
-    transform: perspective(400px) rotateX(10deg);
-  }
-  100% {
-    transform: perspective(400px) rotateX(0);
-    opacity: 1;
-  }
 }
 @keyframes flipInX {
   0% {
@@ -3111,25 +2570,7 @@ body .ui-tooltip {
 .flipInX {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
-  -webkit-animation-name: flipInX;
   animation-name: flipInX;
-}
-
-@-webkit-keyframes flipInY {
-  0% {
-    transform: perspective(400px) rotateY(90deg);
-    opacity: 0;
-  }
-  40% {
-    transform: perspective(400px) rotateY(-10deg);
-  }
-  70% {
-    transform: perspective(400px) rotateY(10deg);
-  }
-  100% {
-    transform: perspective(400px) rotateY(0);
-    opacity: 1;
-  }
 }
 @keyframes flipInY {
   0% {
@@ -3150,19 +2591,7 @@ body .ui-tooltip {
 .flipInY {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
-  -webkit-animation-name: flipInY;
   animation-name: flipInY;
-}
-
-@-webkit-keyframes flipOutX {
-  0% {
-    transform: perspective(400px) rotateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: perspective(400px) rotateX(90deg);
-    opacity: 0;
-  }
 }
 @keyframes flipOutX {
   0% {
@@ -3175,21 +2604,9 @@ body .ui-tooltip {
   }
 }
 .flipOutX {
-  -webkit-animation-name: flipOutX;
   animation-name: flipOutX;
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
-}
-
-@-webkit-keyframes flipOutY {
-  0% {
-    transform: perspective(400px) rotateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: perspective(400px) rotateY(90deg);
-    opacity: 0;
-  }
 }
 @keyframes flipOutY {
   0% {
@@ -3204,27 +2621,7 @@ body .ui-tooltip {
 .flipOutY {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
-  -webkit-animation-name: flipOutY;
   animation-name: flipOutY;
-}
-
-@-webkit-keyframes lightSpeedIn {
-  0% {
-    transform: translateX(100%) skewX(-30deg);
-    opacity: 0;
-  }
-  60% {
-    transform: translateX(-20%) skewX(30deg);
-    opacity: 1;
-  }
-  80% {
-    transform: translateX(0) skewX(-15deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0) skewX(0);
-    opacity: 1;
-  }
 }
 @keyframes lightSpeedIn {
   0% {
@@ -3245,21 +2642,8 @@ body .ui-tooltip {
   }
 }
 .lightSpeedIn {
-  -webkit-animation-name: lightSpeedIn;
   animation-name: lightSpeedIn;
-  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
-}
-
-@-webkit-keyframes lightSpeedOut {
-  0% {
-    transform: translateX(0) skewX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%) skewX(-30deg);
-    opacity: 0;
-  }
 }
 @keyframes lightSpeedOut {
   0% {
@@ -3272,23 +2656,8 @@ body .ui-tooltip {
   }
 }
 .lightSpeedOut {
-  -webkit-animation-name: lightSpeedOut;
   animation-name: lightSpeedOut;
-  -webkit-animation-timing-function: ease-in;
   animation-timing-function: ease-in;
-}
-
-@-webkit-keyframes rotateIn {
-  0% {
-    transform-origin: center center;
-    transform: rotate(-200deg);
-    opacity: 0;
-  }
-  100% {
-    transform-origin: center center;
-    transform: rotate(0);
-    opacity: 1;
-  }
 }
 @keyframes rotateIn {
   0% {
@@ -3303,21 +2672,7 @@ body .ui-tooltip {
   }
 }
 .rotateIn {
-  -webkit-animation-name: rotateIn;
   animation-name: rotateIn;
-}
-
-@-webkit-keyframes rotateInDownLeft {
-  0% {
-    transform-origin: left bottom;
-    transform: rotate(-90deg);
-    opacity: 0;
-  }
-  100% {
-    transform-origin: left bottom;
-    transform: rotate(0);
-    opacity: 1;
-  }
 }
 @keyframes rotateInDownLeft {
   0% {
@@ -3332,21 +2687,7 @@ body .ui-tooltip {
   }
 }
 .rotateInDownLeft {
-  -webkit-animation-name: rotateInDownLeft;
   animation-name: rotateInDownLeft;
-}
-
-@-webkit-keyframes rotateInDownRight {
-  0% {
-    transform-origin: right bottom;
-    transform: rotate(90deg);
-    opacity: 0;
-  }
-  100% {
-    transform-origin: right bottom;
-    transform: rotate(0);
-    opacity: 1;
-  }
 }
 @keyframes rotateInDownRight {
   0% {
@@ -3361,21 +2702,7 @@ body .ui-tooltip {
   }
 }
 .rotateInDownRight {
-  -webkit-animation-name: rotateInDownRight;
   animation-name: rotateInDownRight;
-}
-
-@-webkit-keyframes rotateInUpLeft {
-  0% {
-    transform-origin: left bottom;
-    transform: rotate(90deg);
-    opacity: 0;
-  }
-  100% {
-    transform-origin: left bottom;
-    transform: rotate(0);
-    opacity: 1;
-  }
 }
 @keyframes rotateInUpLeft {
   0% {
@@ -3390,21 +2717,7 @@ body .ui-tooltip {
   }
 }
 .rotateInUpLeft {
-  -webkit-animation-name: rotateInUpLeft;
   animation-name: rotateInUpLeft;
-}
-
-@-webkit-keyframes rotateInUpRight {
-  0% {
-    transform-origin: right bottom;
-    transform: rotate(-90deg);
-    opacity: 0;
-  }
-  100% {
-    transform-origin: right bottom;
-    transform: rotate(0);
-    opacity: 1;
-  }
 }
 @keyframes rotateInUpRight {
   0% {
@@ -3419,21 +2732,7 @@ body .ui-tooltip {
   }
 }
 .rotateInUpRight {
-  -webkit-animation-name: rotateInUpRight;
   animation-name: rotateInUpRight;
-}
-
-@-webkit-keyframes rotateOut {
-  0% {
-    transform-origin: center center;
-    transform: rotate(0);
-    opacity: 1;
-  }
-  100% {
-    transform-origin: center center;
-    transform: rotate(200deg);
-    opacity: 0;
-  }
 }
 @keyframes rotateOut {
   0% {
@@ -3448,21 +2747,7 @@ body .ui-tooltip {
   }
 }
 .rotateOut {
-  -webkit-animation-name: rotateOut;
   animation-name: rotateOut;
-}
-
-@-webkit-keyframes rotateOutDownLeft {
-  0% {
-    transform-origin: left bottom;
-    transform: rotate(0);
-    opacity: 1;
-  }
-  100% {
-    transform-origin: left bottom;
-    transform: rotate(90deg);
-    opacity: 0;
-  }
 }
 @keyframes rotateOutDownLeft {
   0% {
@@ -3477,21 +2762,7 @@ body .ui-tooltip {
   }
 }
 .rotateOutDownLeft {
-  -webkit-animation-name: rotateOutDownLeft;
   animation-name: rotateOutDownLeft;
-}
-
-@-webkit-keyframes rotateOutDownRight {
-  0% {
-    transform-origin: right bottom;
-    transform: rotate(0);
-    opacity: 1;
-  }
-  100% {
-    transform-origin: right bottom;
-    transform: rotate(-90deg);
-    opacity: 0;
-  }
 }
 @keyframes rotateOutDownRight {
   0% {
@@ -3506,21 +2777,7 @@ body .ui-tooltip {
   }
 }
 .rotateOutDownRight {
-  -webkit-animation-name: rotateOutDownRight;
   animation-name: rotateOutDownRight;
-}
-
-@-webkit-keyframes rotateOutUpLeft {
-  0% {
-    transform-origin: left bottom;
-    transform: rotate(0);
-    opacity: 1;
-  }
-  100% {
-    transform-origin: left bottom;
-    transform: rotate(-90deg);
-    opacity: 0;
-  }
 }
 @keyframes rotateOutUpLeft {
   0% {
@@ -3535,21 +2792,7 @@ body .ui-tooltip {
   }
 }
 .rotateOutUpLeft {
-  -webkit-animation-name: rotateOutUpLeft;
   animation-name: rotateOutUpLeft;
-}
-
-@-webkit-keyframes rotateOutUpRight {
-  0% {
-    transform-origin: right bottom;
-    transform: rotate(0);
-    opacity: 1;
-  }
-  100% {
-    transform-origin: right bottom;
-    transform: rotate(90deg);
-    opacity: 0;
-  }
 }
 @keyframes rotateOutUpRight {
   0% {
@@ -3564,18 +2807,7 @@ body .ui-tooltip {
   }
 }
 .rotateOutUpRight {
-  -webkit-animation-name: rotateOutUpRight;
   animation-name: rotateOutUpRight;
-}
-
-@-webkit-keyframes slideInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-2000px);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
 @keyframes slideInDown {
   0% {
@@ -3587,18 +2819,7 @@ body .ui-tooltip {
   }
 }
 .slideInDown {
-  -webkit-animation-name: slideInDown;
   animation-name: slideInDown;
-}
-
-@-webkit-keyframes slideInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-2000px);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }
 @keyframes slideInLeft {
   0% {
@@ -3610,18 +2831,7 @@ body .ui-tooltip {
   }
 }
 .slideInLeft {
-  -webkit-animation-name: slideInLeft;
   animation-name: slideInLeft;
-}
-
-@-webkit-keyframes slideInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(2000px);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }
 @keyframes slideInRight {
   0% {
@@ -3633,18 +2843,7 @@ body .ui-tooltip {
   }
 }
 .slideInRight {
-  -webkit-animation-name: slideInRight;
   animation-name: slideInRight;
-}
-
-@-webkit-keyframes slideOutLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-2000px);
-  }
 }
 @keyframes slideOutLeft {
   0% {
@@ -3656,18 +2855,7 @@ body .ui-tooltip {
   }
 }
 .slideOutLeft {
-  -webkit-animation-name: slideOutLeft;
   animation-name: slideOutLeft;
-}
-
-@-webkit-keyframes slideOutRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(2000px);
-  }
 }
 @keyframes slideOutRight {
   0% {
@@ -3679,18 +2867,7 @@ body .ui-tooltip {
   }
 }
 .slideOutRight {
-  -webkit-animation-name: slideOutRight;
   animation-name: slideOutRight;
-}
-
-@-webkit-keyframes slideOutUp {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-2000px);
-  }
 }
 @keyframes slideOutUp {
   0% {
@@ -3702,65 +2879,28 @@ body .ui-tooltip {
   }
 }
 .slideOutUp {
-  -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
-}
-
-@-webkit-keyframes hinge {
-  0% {
-    transform: rotate(0);
-    transform-origin: top left;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-  20%, 60% {
-    transform: rotate(80deg);
-    transform-origin: top left;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-  40% {
-    transform: rotate(60deg);
-    transform-origin: top left;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-  80% {
-    transform: rotate(60deg) translateY(0);
-    opacity: 1;
-    transform-origin: top left;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-  100% {
-    transform: translateY(700px);
-    opacity: 0;
-  }
 }
 @keyframes hinge {
   0% {
     transform: rotate(0);
     transform-origin: top left;
-    -webkit-animation-timing-function: ease-in-out;
     animation-timing-function: ease-in-out;
   }
   20%, 60% {
     transform: rotate(80deg);
     transform-origin: top left;
-    -webkit-animation-timing-function: ease-in-out;
     animation-timing-function: ease-in-out;
   }
   40% {
     transform: rotate(60deg);
     transform-origin: top left;
-    -webkit-animation-timing-function: ease-in-out;
     animation-timing-function: ease-in-out;
   }
   80% {
     transform: rotate(60deg) translateY(0);
     opacity: 1;
     transform-origin: top left;
-    -webkit-animation-timing-function: ease-in-out;
     animation-timing-function: ease-in-out;
   }
   100% {
@@ -3769,19 +2909,7 @@ body .ui-tooltip {
   }
 }
 .hinge {
-  -webkit-animation-name: hinge;
   animation-name: hinge;
-}
-
-@-webkit-keyframes rollIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%) rotate(-120deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0) rotate(0);
-  }
 }
 @keyframes rollIn {
   0% {
@@ -3794,19 +2922,7 @@ body .ui-tooltip {
   }
 }
 .rollIn {
-  -webkit-animation-name: rollIn;
   animation-name: rollIn;
-}
-
-@-webkit-keyframes rollOut {
-  0% {
-    opacity: 1;
-    transform: translateX(0) rotate(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(100%) rotate(120deg);
-  }
 }
 @keyframes rollOut {
   0% {
@@ -3819,7 +2935,6 @@ body .ui-tooltip {
   }
 }
 .rollOut {
-  -webkit-animation-name: rollOut;
   animation-name: rollOut;
 }
 
@@ -3848,7 +2963,6 @@ body .ui-tooltip {
   transition: inherit;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -3988,13 +3102,11 @@ body .ui-tooltip {
 }
 
 .swiper-container-horizontal.swiper-container-css-mode > .swiper-wrapper {
-  -ms-scroll-snap-type: x mandatory;
-      scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
 }
 
 .swiper-container-vertical.swiper-container-css-mode > .swiper-wrapper {
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory;
 }
 
 :root {
@@ -4300,8 +3412,7 @@ button.swiper-pagination-bullet {
   margin-top: -21px;
   z-index: 10;
   transform-origin: 50%;
-  -webkit-animation: swiper-preloader-spin 1s infinite linear;
-          animation: swiper-preloader-spin 1s infinite linear;
+  animation: swiper-preloader-spin 1s infinite linear;
   box-sizing: border-box;
   border: 4px solid var(--swiper-preloader-color, var(--swiper-theme-color));
   border-radius: 50%;
@@ -4314,12 +3425,6 @@ button.swiper-pagination-bullet {
 
 .swiper-lazy-preloader-black {
   --swiper-preloader-color:#000;
-}
-
-@-webkit-keyframes swiper-preloader-spin {
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes swiper-preloader-spin {
@@ -4530,6 +3635,9 @@ img {
 body {
   font-family: "Pretendard", "맑은 고딕", "malgun gothic", "AppleGothicNeoSD", "Apple SD 산돌고딕 Neo", "Microsoft NeoGothic", "Droid sans", sans-serif;
   font-weight: initial;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: overlay;
 }
 
 /* IE에서 input 타입의 password의 placeholder 폰트 설정 */
@@ -4870,7 +3978,6 @@ table.sticky {
 }
 table.sticky > thead > tr > th,
 table.sticky > thead > tr > td {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -4945,7 +4052,7 @@ table > tbody > tr th {
 
 @media (max-width: 1024px) {
   .form table > tbody > tr > th,
-.form table > tbody > tr > td {
+  .form table > tbody > tr > td {
     height: auto;
     padding: 1rem;
     border-right: 0;
@@ -4966,7 +4073,7 @@ table > tbody > tr th {
 }
 @media (max-width: 1024px) {
   .tab > *:first-child:nth-last-child(2),
-.tab > *:first-child:nth-last-child(2) ~ * {
+  .tab > *:first-child:nth-last-child(2) ~ * {
     min-width: 0;
     width: calc(50% - 0.25rem);
   }
@@ -4977,7 +4084,7 @@ table > tbody > tr th {
 }
 @media (max-width: 1024px) {
   .tab > *:first-child:nth-last-child(3),
-.tab > *:first-child:nth-last-child(3) ~ * {
+  .tab > *:first-child:nth-last-child(3) ~ * {
     min-width: 0;
     width: calc(33.3333333333% - 0.333333333rem);
   }
@@ -4989,15 +4096,15 @@ table > tbody > tr th {
 }
 @media (max-width: 1024px) {
   .tab > *:first-child:nth-last-child(6),
-.tab > *:first-child:nth-last-child(6) ~ * {
+  .tab > *:first-child:nth-last-child(6) ~ * {
     width: calc(33.3333333333% - 0.3333333333rem);
   }
   .tab > *:first-child:nth-last-child(6):nth-child(3n),
-.tab > *:first-child:nth-last-child(6) ~ *:nth-child(3n) {
+  .tab > *:first-child:nth-last-child(6) ~ *:nth-child(3n) {
     margin-right: 0;
   }
   .tab > *:first-child:nth-last-child(6):nth-child(n+4),
-.tab > *:first-child:nth-last-child(6) ~ *:nth-child(n+4) {
+  .tab > *:first-child:nth-last-child(6) ~ *:nth-child(n+4) {
     margin-top: 0.5rem;
   }
 }
