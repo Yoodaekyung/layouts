@@ -3,6 +3,11 @@
   margin: 0 auto;
 }
 
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
 @media (max-width: 1600px) {
   .inner {
     padding: 0 2rem;

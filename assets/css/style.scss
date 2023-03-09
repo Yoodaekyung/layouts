@@ -1,11 +1,14 @@
-@charset "utf-8"; 
+@charset "utf-8";       // 인코딩 설정
+@import "style.path";   // 경로 변수처리
 
-$deviceWidth:1600px;
-$minWidth:1280px; 
+$inner:1600px;
 
 // 공통 inner 클래스
-.inner{max-width:$deviceWidth; margin:0 auto;}
+.inner{max-width:$inner; margin:0 auto;}
 
-@media(max-width:$deviceWidth){
+// safari에서 가로스크롤 방지하기 위한 트릭
+body{position:relative; overflow-x:hidden;}
+
+@media(max-width:$inner){
     .inner{padding:0 2rem;}
 }
