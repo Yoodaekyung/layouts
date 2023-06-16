@@ -60,6 +60,7 @@ img{max-width:100%; border:0px; vertical-align:top;}
    10.0 Common
    -------------------------------------------------------------------------- */
 
+$designFontEn:'Archivo';
 $designFontKr:'Pretendard';
 $defaultFontKr:'맑은 고딕', 'malgun gothic', 'AppleGothicNeoSD', 'Apple SD 산돌고딕 Neo', 'Microsoft NeoGothic', 'Droid sans';
 $mainColor:#1d77cb;
@@ -78,6 +79,8 @@ mark{color:$mainColor;}
       display:inline-block; vertical-align:top;
    }
 
+   & > img{vertical-align:middle;}
+
    &.t > *{vertical-align:top;}
    &.m > *{vertical-align:middle;}
    &.b > *{vertical-align:bottom;}
@@ -94,14 +97,49 @@ caption, legend{position:fixed; top:-100vw; width:0; height:0; text-indent:-100v
    $inputBackgroundColor:#fff;
    $inputBorder:1px solid transparent;
    $inputBorderColor:#ddd;
-   $inputRadius:3px;
+   $inputRadius:0;
    $inputBorderColorActive:#858788;
    $inputColorActive:#111;
    $inputFontSize:1.6rem;
 
+   *:not(.input, .global-attachment) > label:not(.wa, .btn){
+      position:relative; font-size:1.7rem; line-height:$inputHeight;
+
+      &.dot{
+         padding-left:1rem; margin-right:1rem;
+
+         &::before{display:inline-block; width:2px; height:2px; left:0; top:50%; margin-top:-1px; background:#111;}
+      }
+
+
+      &.required{
+
+         &::before{
+            display:inline-block; content:'*'; font-size:1.7rem; left:-1rem; top:50%; color:#e7761b; line-height:1; transform:translateY(-50%);
+
+            @media(max-width:768px){
+               left:auto; right:-1rem;
+            }
+         }
+      }
+   }
+
+   select ~ span:not(.input),
+   input:not([type="file"]) ~ span:not(.input){
+      font-size:1.7rem; line-height:$inputHeight;
+
+      @media(max-width:768px){
+         //margin-top:7px; line-height:1;
+      }
+   }
+
+
+   input ~ button:not(.clone, .btn){min-width:$inputHeight; height:$inputHeight; border-radius:3px; background:#252525;}
+
    select,
    textarea,
-   input:not([type="checkbox"]):not([type="radio"]):not([type="file"]){
+   input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]){
+      min-width:0;
       height:$inputHeight;
       padding:$inputPadding;
       background-color:$inputBackgroundColor;
@@ -124,7 +162,42 @@ caption, legend{position:fixed; top:-100vw; width:0; height:0; text-indent:-100v
    select:disabled,
    textarea:read-only{background-color:#ddd !important; border-color:#cdd0d3 !important; color:#999 !important; cursor:default;}
 
-   textarea{width:100%; resize:none; white-space:pre; background:#f6f9fd;}
+   textarea{width:100%; padding:1rem; resize:none; white-space:pre; min-height:10rem;}
+
+   .file{
+      position:relative;
+
+      &:nth-child(n + 2){margin-top:5px;}
+
+      &::before{
+         position:relative;
+         display:inline-flex;
+         width:100%;
+         max-width:70%;
+         vertical-align:middle;
+         margin-right:5px;
+         height:$inputHeight;
+         padding:$inputPadding;
+         background-color:$inputBackgroundColor;
+         border:$inputBorder;
+         border-color:$inputBorderColor;
+         border-radius:$inputRadius;
+         font-size:$inputFontSize;
+         content:attr(data-file-name);
+         line-height:calc($inputHeight - 2px);
+         white-space:nowrap;
+         overflow:hidden;
+         text-overflow:ellipsis;
+
+         @media(max-width:640px){
+            max-width:50%;
+         }
+
+      }
+
+      input[type="file"] + label{margin-right:1rem; flex-shrink: 0;}
+      input[type="file"]:focus + label{outline:2px solid #111; }
+   }
 
 
    select,
@@ -139,16 +212,37 @@ caption, legend{position:fixed; top:-100vw; width:0; height:0; text-indent:-100v
 
    select::-ms-expand{display:none;}
 
-   input.datepicker{background:#fff url(#{$img}/common/icon_calendar.svg) no-repeat calc(100% - 1rem) center;}
+   input.datepicker{background:#fff url(#{$img}/common/svg/icon_calendar.svg) no-repeat calc(100% - 1rem) center;}
 
-   .input{margin-right:10px; height:18px; line-height:18px; white-space:nowrap;}
+   .input{
+      margin-right:1rem; height:18px; line-height:18px; white-space:nowrap;
+
+      // 마지막 요소에 margin값을 초기화 시킵니다.
+      &:last-child{margin-right:0;}
+
+      // 해당 요소에 grid라는 문자열이 포함된 경우 margin값을 초기화 시킵니다.
+      @media(min-width:768px){
+         &[class*='grid']{margin-right:0;}
+      }
+      
+      // 
+      &:first-child,
+      &:first-child ~ [class*='input']{
+         height:4.8rem; line-height:4.8rem;
+
+         label{line-height:18px; vertical-align:middle;}
+      }
+   }
    .input:last-child{margin-right:0;}
 
    .input input[type="checkbox"],
    .input input[type="radio"]{opacity:0; width:0; height:0; padding:0; margin:0; overflow:hidden;}
+   
+   .input input[type="checkbox"]:focus + label,
+   .input input[type="radio"]:focus + label{outline:2px solid #111; border-radius:3px;}
 
    .input input[type="checkbox"] + label,
-   .input input[type="radio"] + label{position:relative; height:18px; cursor:pointer;}
+   .input input[type="radio"] + label{position:relative; display:inline-block; height:18px; cursor:pointer;}
 
    .input input[type="checkbox"]:disabled + label,
    .input input[type="radio"]:disabled + label{cursor:default; opacity:0.35;}
@@ -161,11 +255,12 @@ caption, legend{position:fixed; top:-100vw; width:0; height:0; text-indent:-100v
 
 
    .input input[type="checkbox"] + label::before,
-   .input input[type="radio"] + label::before{position:relative; display:inline-block; width:18px; height:18px; border-radius:2px; border:1px solid #ddd; background:#fff; vertical-align:top;}
+   .input input[type="radio"] + label::before{position:relative; display:inline-block; width:18px; height:18px; border-radius:2px; border:1px solid #c6c6c6; background:#fff; vertical-align:top;}
 
-   .input input[type="radio"]:checked  + label::after{display:inline-block; width:10px; height:10px; border-radius:10px; background:#0277c5; left:4px; top:50%; margin-top:-5px;}
+   .input input[type="radio"]:checked  + label::before{background:#2569c9; border-color:#2569c9;}
+   .input input[type="radio"]:checked  + label::after{display:inline-block; width:6px; height:6px; border-radius:6px; background:#fff; left:6px; top:50%; margin-top:-3px;}
 
-   .input input[type="checkbox"]:checked  + label::before{border-color:#2d4acb; background:#fff url(#{$img}/common/icon_check.svg) no-repeat center;}
+   .input input[type="checkbox"]:checked  + label::before{border-color:#2569c9; background:#2569c9 url(#{$img}/common/svg/icon_check.svg) no-repeat center;}
 
 
    .input input[type="radio"] + label::before{border-radius:18px;}
@@ -197,25 +292,44 @@ $scrollbarThumbColor:#111;
 ::-webkit-scrollbar-track{width:$scrollbarSize; background:$scrollbarTrackColor;}
 ::-webkit-scrollbar-thumb{background:$scrollbarThumbColor;}
 
+
+.scroll-typy-a{
+   &::-webkit-scrollbar{width:3px; height:3px;}
+   &::-webkit-scrollbar-track{width:3px; background:#e5e5e5;}
+   &::-webkit-scrollbar-thumb{background:#a0a0a0;}
+}
+
+.scroll-typy-b{
+   &::-webkit-scrollbar{width:6px; height:6px;}
+   &::-webkit-scrollbar-track{width:6px; background:#e5e5e5;}
+   &::-webkit-scrollbar-thumb{background:#959595; border-radius:6px;}
+}
+
 /* --------------------------------------------------------------------------
    13.0 기본 팝업
    -------------------------------------------------------------------------- */
 .pop{
-   position:fixed; width:100%; height:100vh; line-height:100vh; left:0; top:0; background:rgba(0,0,0,0.6); z-index:9999; font-size:0; text-align:center; overflow:auto;
+   position:fixed; width:100%; height:100vh; line-height:100vh; left:0; top:0; padding:0 2rem; background:rgba(0,0,0,0.3); z-index:9999; font-size:0; text-align:center;
 
    .el{
-      position:relative; width:1024px; max-height:60rem; overflow-y:auto; display:inline-block; line-height:1; vertical-align:middle; background:#fff; text-align:left;
+      opacity:0; position:relative; transform:translateY(25px);  width:100%; max-width:740px; display:inline-block; line-height:1; vertical-align:middle; background:#fff; text-align:left;
 
       .pop-header{
-         height:11rem; line-height:11rem; padding:0 3.5rem; font-size:1.5rem; background:#0e76d9; color:#fff;
+         position:relative; height:7rem; line-height:7rem; padding:0 3.5rem; font-size:1.5rem; background:#1558b6; color:#fff;
 
-         h2{font-size:3.2rem !important;}
+         h2{font-size:2.2rem !important;}
       }
       
       .pop-contents{
-         padding:3.5rem; background:#fff; font-size:1.6rem; line-height:1.5; color:#454545;
+         max-height:calc(100vh - 11rem); padding:7rem 3rem; background:#fff; font-size:1.6rem; line-height:1.5; color:#454545; overflow-y:auto; 
 
-         h3{position:relative; font-size:2.4rem; font-weight: 500; color:#222;}
+         h3{position:relative; margin-bottom:1rem; font-size:2.8rem; font-weight: 500; color:#222;}
+         
+         @media(max-width:1024px){
+            padding:5rem 2rem;
+
+            h3{font-size:2.5rem;}
+         }
 
 
          .scroll{
@@ -247,38 +361,102 @@ $scrollbarThumbColor:#111;
          }
       }
 
-      button.pop-close{position:absolute; width:11rem; height:11rem; right:0; top:0;}
+      button.close-pop:not(.btn){position:absolute; width:7rem; height:7rem; right:0; top:0;}
+
    }
 }
 
 /* --------------------------------------------------------------------------
-   14.0 기본 버튼
+   14.0 공용 버튼
    -------------------------------------------------------------------------- */
 .btn-group {
-   & > *{margin-right:0.5rem;}
-   & > *:last-child{margin-right:0;}
+   & > .btn:not(label){margin:3px;}
+   &:not(.tac) > .btn:last-child{margin-right:0;}
+
+   .clone{
+      width:3.2rem; height:3.2rem; border-radius:3.2rem; line-height:calc(3.2rem - 2px); border:1px solid #c6c6c6; font-size:0; flex-shrink: 0; background:#fff;
+
+      img{vertical-align:middle;}
+   }
 
    .btn{
-      min-width:18rem; height:6rem; line-height:calc(6rem - 2px); border-radius:0.7rem; padding:0 2rem; background-color:#fff; border:1px solid #ccc; font-size:0; color:#111;
+      min-width:18rem; height:6.8rem; line-height:calc(6.8rem - 2px); padding:0 2rem; background-color:#fff; border:1px solid #a4a6a8; font-size:0; color:#111; text-align:center;
 
-      @media(max-width:1024px){
-         min-width:0; height:5rem; line-height:calc(5rem - 2px);
-      }
+      
+      &.l{
+         min-width:27rem; padding:0 5rem;
+         
+         @media(max-width:768px){
+            height:auto; min-height:6.8rem; padding:0.5rem 3rem; line-height:1;
 
-      img{display:inline-block; margin-left:1rem; vertical-align:middle;}
-      span{display:inline-block; vertical-align:middle; font-size:1.7rem; color:inherit;}
-
-      &.active{background-color:#005aab; color:#fff; border-color:transparent;}
-
-      &.more{
-         border-color:#949494;
-
-         span{
-            position:relative; padding-right:2rem;
-
-            &::after{display:inline-block; width:7px; height:7px; right:0; top:50%; margin-top:-3.5px; border-top:2px solid #ddd; border-right:2px solid #ddd; transform:rotate(135deg);}
+            span{
+               line-height:1.35;
+            }
          }
       }
+      &.m{min-width:15rem; height:5.3rem; line-height:calc(5.3rem - 2px);}
+      &.s{
+         min-width:0; height:4.8rem; line-height:calc(4.8rem - 2px);
+
+         span{font-size:1.5rem;}
+      }
+
+      &.es{
+         min-width:0; height:4.4rem; line-height:calc(4.4rem - 2px);
+
+         span{font-size:1.5rem;}
+      }
+
+      &.mini{
+         min-width:0; height:3.6rem; line-height:calc(3.6rem - 2px); padding:0 1rem; border-radius:3px;
+
+         span{font-size:1.6rem;}
+
+         &.active{
+            border-color:#5185cd; color:#1558b6;  background:#f6fbff;
+         }
+
+         &.apply{
+            border-color:#1558b6; color:#fff;  background:#1558b6;
+         }
+      }
+
+      &.radius{border-radius:5px;}
+      &.round{border-radius:10rem;}
+
+      img{display:inline-block; vertical-align:middle;}
+      img:first-child{margin-right:1rem;}
+      img:last-child{margin-left:1rem;}
+
+      span{display:inline-block; vertical-align:middle; font-size:1.8rem; color:inherit;}
+
+      @media(max-width:1024px){
+         min-width:initial; height:5.3rem; line-height:calc(5.3rem - 2px); padding:0 3rem;
+
+         &.m{min-width:initial;}
+
+         span{font-size:1.6rem;}
+      }
+
+
+      &.blue{background:#374151; color:#fff; border-color:#374151;}
+      &.light-blue{background:#627389; color:#fff; border-color:#627389;}
+      &.dark{background:#252525; color:#fff; border-color:#252525;}
+
+      
+
+      &.active{background-color:#1558b6; color:#fff; border-color:transparent;}
+      &.line.active{background-color:#fff; color:#1558b6; border-color:#1558b6; font-weight:600;}
+
+
+      &[data-custom='발급문서검색']{
+         width:100%; min-width:0; height:10.6rem; border-radius:3px;
+
+         @media(max-width:1024px){
+            height:6rem; line-height:calc(6rem - 2px);
+         }
+      }
+      
    }
 }
 
@@ -315,23 +493,63 @@ $scrollbarThumbColor:#111;
 // 기본 테이블 스타일 정의 (데이트픽커 예외 처리)
 div:not(.ui-datepicker){
 
+
+   .month-prev,
+   .month-next{
+      position:absolute; width:3rem; height:3rem; top:50%; margin-top:-1.5rem;
+
+      &::before,
+      &::after{display:inline-block; width:inherit; height:inherit; top:0; background:#d7e3f1; transform:rotate(45deg);}
+
+     
+
+      i{position:absolute; width:1rem; height:1rem; border-top:2px solid #fff; border-right:2px solid #fff; left:50%; top:50%; z-index:2;}
+   }
+
+   .month-prev{
+      transform:translateX(-10rem);
+
+      &::before{left:6px;}
+      &::after{left:0; background:#2569ca;}
+
+      i{margin-left:-0.25rem; margin-top:-0.5rem; transform:rotate(-135deg);}
+   }
+
+   .month-next{
+      transform:translateX(10rem);
+
+      &::before{right:6px;}
+      &::after{right:0; background:#2569ca;}
+
+      i{margin-left:-0.75rem; margin-top:-0.5rem; transform:rotate(45deg);}
+   }
+
    table{
-      width:100%; border-top:2px solid #111; font-size:1.7rem; line-height:2rem; border-collapse:separate; border-spacing:0;
+      width:100%; border-top:3px solid #346ec0; font-size:1.7rem; line-height:2rem; border-collapse:collapse; border-spacing:0; line-height:1.35;
+
+      // 스크롤이 필요한 테이블의 사용 방법 (기본은 1024px)
+      &[data-scroll-ul]{min-width:1600px;}
+      &[data-scroll-el]{min-width:1400px;}
+      &[data-scroll-lg]{min-width:1280px;}
+      &[data-scroll-md]{min-width:1024px;}
+      &[data-scroll-sm]{min-width:768px;}
+      &[data-scroll-es]{min-width:640px;}
+      &[data-scroll-us]{min-width:420px;}
+
    
       &.fixed{table-layout:fixed;}
    
+      // 스티키 테이블
       &.sticky{
-   
          position:relative; border-top:0;
-         
-   
+
          > thead{
-         
-               > tr{
-   
-                  > th,
-                  > td{position:sticky; top:0; }
-               }
+      
+            > tr{
+
+               > th,
+               > td{position:sticky; top:0; }
+            }
          }
    
          > tbody{
@@ -343,53 +561,196 @@ div:not(.ui-datepicker){
             }
          }
       }
+
+      // 좌, 우 라인이 없는경우의 테이블
+      &.bn{
+
+         th,
+         td{border-right:0; border-left:0;}
+      }
+
+      &.schedule,
+      &.bpa-calendar{
+
+         > thead{
+
+            th,
+            td{background:#eef3f9;}
+         }
+
+         > tbody{
+
+            th{
+               background:#eef3f9;
+            }
+
+            th,
+            td{
+
+               &.unable{background:#f9fafc;}
+
+               &.today{
+
+                  background:#fae4d9;
+
+               }
+
+
+               &.vat{vertical-align:top;}
+
+            }
+         }
+      }
+
+      &.bpa-calendar > tbody > tr > td{height:20rem;}
    
       > thead{
          
          > tr{
    
             > th,
-            > td{height:5.5rem; border-bottom:2px solid #ddd; vertical-align:middle; background:#fff;}
+            > td{
+               height:8rem; border-bottom:1px solid #8d8d8d; vertical-align:middle; background:#f7f8fa; font-size:1.8rem;
+
+               &:last-child{border-right:0;}
+
+
+               
+               button.day-before,
+               button.day-next{
+                  position:absolute; display:block; width:3rem; height:3rem; top:50%; margin-top:-1.5rem; background:#356dc0; font-size:0;
+
+                  img{vertical-align:middle;}
+               }
+
+            }
          }
       }
    
       > tbody{
    
          > tr{
+
+            &.notice > th,
+            &.notice > td{background:#f5f7fa;}
    
             > th,
             > td{
-               height:8rem; padding:1rem 3rem; border-bottom:1px solid #dfdfdf; border-right:1px solid #dfdfdf; vertical-align:middle;
-   
+               height:7rem; padding:1rem 2rem; border-bottom:1px solid #dedede; border-right:1px solid #dedede; border-left:1px solid #dedede; vertical-align:middle; color:#555;
+
+               &:not(.init, .btn-group){
+                  font-size:1.8rem;
+               }
+
+               &:first-child{border-left:0;}
                &:last-child{border-right:0;}
-   
-               > label{
-                  position:relative; height:3rem; line-height:3rem;
-   
-                  i{
-                     position:absolute; right:-2rem; top:0; width:8px; height:8px; border-radius:8px; background:#005aab;
-                  }
+
+               &:not([rowspan]):last-child{border-right:0;}
+
+
+
+              
+               a.tel{
+                  margin:1rem;
+
+                  i{width:2.8rem; height:2.8rem; border-radius:2.8rem; line-height:calc(2.8rem - 2px); border:1px solid #b0b0b0; text-align:center; font-size:1.7rem; font-weight:700; color:#111; background:#fff;}
+                  span{margin-left:5px; line-height:2.8rem; font-size:1.7rem;}
                }
-   
-               input + button{
-                  padding:0 1.5rem; height:4.8rem; background:#005aab; font-size:1.7rem; color:#fff; border-radius:3px;
-   
-               }
-   
-               ul{
-   
-                  li{
-                     position:relative; padding-left:1rem; line-height:2.5rem; font-size:1.6rem; color:#666;
-   
-                     &::before{display:inline-block; width:5px; height:1px; left:0; top:1.3rem; background:#666;}
-                  }
+
+              
+
+               @media(max-width:768px){
+                  padding:1rem;
+
+                  &[rowspan]:first-child:last-child{height:8rem; line-height:8rem; padding:0 1rem; border-bottom:1px solid #dedede; font-size:2rem; background:#f7f8fa; color:#356dc0;}
                }
             }
+
    
-   
-            th{background:#f3f7f9;}
+            th{
+               background:#f7f8fa; font-weight:500; color:#111;
+
+               @media(max-width:768px){
+                  padding:1rem;
+               }
+            }
+
+            th.vat{vertical-align:top;}
+
+            &.vista th,
+            &.vista td{background:#fef0e7;}
+
+
+         }
+         
+      }
+
+      > tfoot{
+
+         > tr{
+
+            th,
+            td{
+               height:8rem; padding:1rem 3rem; border-bottom:1px solid #dedede; border-right:1px solid #dedede; vertical-align:middle; color:#2b5795; background:#f2f6fd; font-weight:700;
+
+              
+               &:last-child{border-right:0;}
+            }
+
          }
       }
+
+      &.border{
+
+         thead{
+            
+
+            th{
+               border-right:1px solid #dedede; border-bottom:1px solid #dedede;
+
+               &[rowspan]{border-bottom-color:#8d8d8d;}               
+            }
+
+
+            tr:last-child{
+
+               th{border-bottom-color:#8d8d8d;}
+            }
+
+
+         }
+      }
+
+
+      &.responsive{
+
+         @media(max-width:768px){
+            tbody{
+
+               th,
+               td{
+                  display:block; width:100%; height:auto; border-left:0; border-right:0;
+               }
+   
+               th{
+                  background:none; border:none; padding-bottom:0;
+   
+                  > label{height:auto !important; line-height:1 !important;}
+               }
+            }
+         }
+      }
+
+      
+   }
+}
+
+
+*:not(.anb) > .scroll{
+   border-top:3px solid #346ec0; overflow:auto;
+
+   table{
+      border-top:0 !important;
    }
 }
 
@@ -398,45 +759,311 @@ div:not(.ui-datepicker){
    16.0 선택자 트릭을 이용한 탭 너비 조정
    -------------------------------------------------------------------------- */
 .tab{
+   position:relative; background:#fbfbfb;
 
-   /* one item */
-   > *:first-child:nth-last-child(1) {
+   &::before{display:inline-block; width:100%; height:100%; left:0; top:0; border:1px solid #d0d0d0; z-index:1;}
+
+   // 기본 스타일
+   > a,
+   > button{
+      position:relative; height:8rem; border-right:1px solid #d0d0d0; border-bottom:1px solid #d0d0d0; background:#fff;
+
+      &:nth-child(4n){border-right:0;}
+
+
+      @media(max-width:1024px){
+         height:6rem;
+      }
+
+      span{
+         position:relative; display:inline-block; line-height:1.2; vertical-align:middle; font-size:2rem; color:#666; z-index:2;
+
+         @media(max-width:1024px){
+            font-size:1.7rem;
+         }
+      }
+
+      &:hover{
+         background:#f2f5f9;
+
+         span{color:#42546e;}
+      }
+
+      &.active{
+
+         &::before{display:inline-block; width:100%; height:100%; left:-1px; top:-1px; background:#1558b6; border:1px solid #1558b6; box-sizing:content-box; box-shadow:3px 3px 1rem rgba(0,0,0,0.25); z-index:1;}
+         span{color:#fff;}
+      }
+
+
+
+
+      /* two items */
+      &:first-child:nth-last-child(2),
+      &:first-child:nth-last-child(2) ~ * {
+         width:50%;
+      }
+
+      /* three items */
+      &:first-child:nth-last-child(3),
+      &:first-child:nth-last-child(3) ~ * {
+         width:33.334%;
+      }
+
+      /* four items */
+      &:first-child:nth-last-child(4),
+      &:first-child:nth-last-child(4) ~ *,
+      &:nth-last-child(-n + 12){
+         width:25%;
+      }
+
+
+      @media(max-width:640px){
+         width:50% !important;
+      }
+   }
+
+   > a{
+      line-height:calc(8rem - 1px); text-align:center;
+
+      @media(max-width:1024px){
+         line-height:6rem;
+      }
+   }
+
+
    
-   }
 
-   /* two items */
-   > *:first-child:nth-last-child(2),
-   > *:first-child:nth-last-child(2) ~ * {
-       min-width:27rem;
 
-       @media(max-width:1024px){
-           min-width:0; width:calc(50% - 0.25rem);
-       }
-   }
+   // 
+   &[data-type="1"]{
+      background:#edf1f4;
 
-   /* three items */
-   > *:first-child:nth-last-child(3),
-   > *:first-child:nth-last-child(3) ~ * {
-       min-width:27rem;
+      a,
+      button{
+         height:7rem; background:#f4f6f8;
 
-       @media(max-width:1024px){
-           min-width:0; width:calc(33.3333333333% - 0.333333333rem);
-       }
-   }
+         @media(max-width:1024px){
+            height:6rem;
+         }
 
-   /* four items */
-   > *:first-child:nth-last-child(4),
-   > *:first-child:nth-last-child(4) ~ * {
+         span{
+            font-size:1.9rem; color:#666;
+
+            @media(max-width:1024px){
+               font-size:1.6rem;
+            }
    
-   }
+         }
 
-   /* five items */
-   > *:first-child:nth-last-child(5),
-   > *:first-child:nth-last-child(5) ~ * {
+         &:hover{
+            background:#e5e8ec;
    
+            span{color:#2f3f56;}
+         }
+
+         &.active{
+            
+
+            &::before{background:#fff; border:1px solid #0378a8; border-radius:6px; box-shadow:none;}
+   
+            span{
+               position:relative; padding-right:2rem; color:#0378a8; font-weight:600;
+
+               &::after{display:inline-block; width:7px; height:7px; right:0; top:50%; margin-top:-4px; border-top:1px solid #0378a8; border-right:1px solid #0378a8; transform:rotate(135deg);}
+
+               @media(max-width:1024px){
+                  &::after{width:5px; height:5px;}
+               }
+            }
+         }
+
+
+      }
+
+      a{
+         line-height:calc(7rem - 1px);
+
+         @media(max-width:1024px){
+            line-height:calc(6rem - 1px);
+         }
+      }
+     
    }
 
 
+   &[data-type="2"]{
+      position:relative; line-height:8rem; padding:0 2rem; background:#eef3fa; border:1px solid #d3deef; white-space:nowrap;
+
+      &::before{display:none;}
+
+      @media(max-width:1024px){
+         line-height:7rem; padding:0 1rem;
+      }
+
+      a:not([target]),
+      button{
+         position:relative; height:8rem; padding:0 3rem; font-size:2rem; color:#666;
+
+         @media(max-width:1024px){
+            height:7rem; font-size:1.7rem; padding:0 2rem;
+         }
+   
+
+         &::after{display:inline-block; width:1px; height:1.6rem; right:0; top:50%; margin-top:-0.8rem; background:#d6d9db;}
+
+         &:last-child::after{display:none;}
+
+         &:hover{color:#111;}
+
+         &.active{
+            color:#2569c9; font-weight:600;
+
+            &::before{display:inline-block; width:100%; height:5px; left:0; bottom:-1px; background:#2569c9;}
+
+            @media(max-width:1024px){
+               &::before{height:3px;}
+            }
+         }
+
+      }
+
+      a[target]{
+         height:4rem; line-height:calc(4rem - 2px); padding:0 2rem 0 3rem; border-radius:4rem; border:1px solid #92aed5; background:#fff; font-size:1.7rem; color:#1558b6;
+
+         @media(max-width:1024px){
+            position:absolute; right:0; top:-5rem;
+         }
+
+         span{
+            position:relative; padding-left:1.5rem;
+
+               &::after{display:inline-block; width:7px; height:7px; left:0; top:50%; margin-top:-3px; border-top:1px solid #1558b6; border-right:1px solid #1558b6; transform:rotate(-135deg);}
+         }
+      }
+   }
+
+
+   &[data-type="3"]{
+      position:relative; line-height:5rem; padding:2rem; background:#eef3fa; border:1px solid #d3deef;
+
+      &::before{display:none;}
+
+      @media(max-width:1024px){
+         line-height:4rem; padding:1rem;
+      }
+
+      a,
+      button{
+         position:relative; height:5rem; padding:0 3rem; font-size:2rem; color:#666;
+
+         @media(max-width:1024px){
+            height:4rem; font-size:1.7rem; padding:0 2rem;
+         }
+   
+
+         &::after{display:inline-block; width:1px; height:1.6rem; right:0; top:50%; margin-top:-0.8rem; background:#d6d9db;}
+
+         &:last-child::after{display:none;}
+
+         &:hover{color:#111;}
+
+         &.active{
+            color:#2569c9; font-weight:600;
+
+            span{
+               position:relative;
+
+               &::before{display:inline-block; width:100%; height:3px; left:0; bottom:-5px; background:#2569c9;}
+            }
+         }
+
+      }
+
+   }
+
+}
+
+
+// 탭(아이콘 형)
+.tab-icon{
+   position:relative; padding:2rem 0;
+
+   &::before{
+      display:inline-block; width:100%; height:calc(100% - 4rem); left:0; top:2rem; background:#f5f8fa; border:1px solid #c3ccd3; 
+   }
+
+   @media(min-width:1600px){
+      &::after{display:inline-block; width:1px; height:calc(100% - 4rem - 2px); right:1px; top:calc(2rem + 1px); background:#f5f8fa; z-index:2;}
+   }
+
+   .fl{
+      width:12.5%;
+
+      @media(max-width:1024px){
+         width:25%; 
+
+         &:nth-child(-n + 4) a{border-bottom:1px solid #c3ccd3;}
+      }
+
+      @media(max-width:580px){
+         width:50%; 
+
+         &:nth-child(-n + 6) a{border-bottom:1px solid #c3ccd3;}
+      }
+
+      &.active{
+         a::before{
+            display:inline-block; width:calc(100% + 2px); height:calc(100% + 2px); left:-1px; top:-1px; background:#fff; border:2px solid #0069ba; border-radius:8px; box-shadow:5px 5px 1rem rgba(0,0,0,0.2);
+         }
+   
+         a span em img{opacity:1;}
+      }
+   }
+
+   a{
+      position:relative; display:block; height:21.5rem; line-height:21.5rem; font-size:0; border-right:1px solid #c3ccd3;
+
+      @media(max-width:1024px){
+         height:10rem; line-height:10rem;
+      }
+
+      span{
+         position:relative; display:inline-block; line-height:1; vertical-align:middle; z-index:1;
+
+         i{
+            display:inline-block; width:9rem; height:10rem; line-height:10rem;
+      
+            img{vertical-align:middle;}
+
+            @media(max-width:1024px){
+               display:none;
+            }
+         }
+
+         em{
+            position:relative; display:block; min-height:4rem; line-height:2rem; font-size:1.9rem; color:#454545; font-weight:400; line-height:1.3;
+
+            @media(max-width:1280px){
+               font-size:1.7rem;
+            }
+
+            @media(max-width:1024px){
+               min-height:0; line-height:1.5; font-size:1.9rem;
+            }
+
+            img{opacity:0; position:absolute; left:50%; bottom:-2rem; transform: translateX(-50%);}
+         }
+
+
+         
+      }
+
+
+
+      
+     
+   }
 }
 
 
@@ -446,18 +1073,26 @@ div:not(.ui-datepicker){
 .pagination{
 
    > *{
+       width:3.7rem; height:3.7rem; line-height:3.7rem; margin:2px; border-radius:3.7rem; text-align:center; font-size:1.5rem; color:#626262; background:no-repeat center; transition:all 0.2s ease;
 
-       width:4rem; height:4rem; line-height:calc(4rem - 2px); margin:2px; border-radius:5px; border:1px solid #ddd; text-align:center; font-size:1.5rem; color:#626262; background:no-repeat center; transition:all 0.2s ease;
+       @media(max-width:420px){
+         width:2.5rem; height:3.1rem; line-height:3.1rem; border-radius:3.1rem;
+       }
 
-       &:hover{ border-color:#005aab; color:#005aab;}
-       
    }
+   
+   em{border-radius:0; background:#005aab; border-color:#005aab; color:#fff;}
+   img{vertical-align:baseline;}
+   a.first,
+   a.prev,
+   a.next,
+   a.last{
+      line-height:calc(3.7rem - 2px); border:1px solid #ddd; 
 
-
-   em{background:#005aab; border-color:#005aab; color:#fff !important;}
-
-   img{vertical-align:middle;}
-
+      @media(max-width:420px){
+         border:0;
+      }
+   }
    a.prev{margin-right:1rem;}
    a.next{margin-left:1rem;}
 }
