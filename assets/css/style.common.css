@@ -466,6 +466,13 @@ caption, legend {
   font-size: 0;
   color: #111;
 }
+@media (max-width: 1024px) {
+  .btn-group .btn {
+    min-width: 0;
+    height: 5rem;
+    line-height: calc(5rem - 2px);
+  }
+}
 .btn-group .btn img {
   display: inline-block;
   margin-left: 1rem;
@@ -630,7 +637,6 @@ div:not(.ui-datepicker) table > tbody > tr th {
   /* three items */
   /* four items */
   /* five items */
-  /* six items */
 }
 .tab > *:first-child:nth-last-child(2),
 .tab > *:first-child:nth-last-child(2) ~ * {
@@ -654,26 +660,6 @@ div:not(.ui-datepicker) table > tbody > tr th {
     width: calc(33.3333333333% - 0.333333333rem);
   }
 }
-.tab > *:first-child:nth-last-child(6),
-.tab > *:first-child:nth-last-child(6) ~ * {
-  width: calc(16.6666666666% - 0.42rem);
-  min-width: 0;
-}
-@media (max-width: 1024px) {
-  .tab > *:first-child:nth-last-child(6),
-  .tab > *:first-child:nth-last-child(6) ~ * {
-    width: calc(33.3333333333% - 0.3333333333rem);
-  }
-  .tab > *:first-child:nth-last-child(6):nth-child(3n),
-  .tab > *:first-child:nth-last-child(6) ~ *:nth-child(3n) {
-    margin-right: 0;
-  }
-  .tab > *:first-child:nth-last-child(6):nth-child(n+4),
-  .tab > *:first-child:nth-last-child(6) ~ *:nth-child(n+4) {
-    margin-top: 0.5rem;
-  }
-}
-
 /* --------------------------------------------------------------------------
    17.0 기본 페이징 스타일 ( '.init' 클래스가 동반되어야 합니다. )
    -------------------------------------------------------------------------- */

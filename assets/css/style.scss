@@ -7,8 +7,10 @@ $inner:1600px;
 .inner{max-width:$inner; margin:0 auto;}
 
 // safari에서 가로스크롤 방지하기 위한 트릭
-body{position:relative; overflow-x:hidden;}
+html,
+body{position:relative; overflow-x:hidden; }
 
 @media(max-width:$inner){
     .inner{padding:0 2rem;}
 }
+
